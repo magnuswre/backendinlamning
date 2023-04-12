@@ -8,7 +8,7 @@ app.listen(PORT, () => console.log('http://localhost:' + PORT))
 
 mongoose.connect(process.env.MONGO_URI)
     .then(console.log('DB connected'))
-    .catch((err) => console.log(err))
+    .catch((err) => console.log(err.message))
 
 
     // Man ska kunna registrera en användare med en POST och användaren ska då få en jsonwebtoken 
