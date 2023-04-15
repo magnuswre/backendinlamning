@@ -1,6 +1,5 @@
 const jwt = require('jsonwebtoken') // JS 9 2:25 
 require('dotenv').config()
-
 const secretKey = process.env.SECRET_KEY
 
 exports.generateToken = (customer) => {
@@ -9,11 +8,11 @@ exports.generateToken = (customer) => {
 
 exports.verifyToken = (req, res, next) => {
     try {
-      const token = req.headers.authorization.split(' ')[1] // js 9 2:31
+      const token = req.headers.authorization.split(' ')[1] // js 9 2:31 Gets only the bearer, separates the array
     //   req.userData = jwt.verify(token, secretKey)   // js 9 2:33 (saves the whole object)
-    req.userId = jwt.verifyToken(token, secretKey)._id // js 9 2:35
+    req.userId = jwt.verify(token, secretKey)._id // js 9 2:35
     next() 
-    } catch {
+    } catch (error) {
       return res.status(401).json({ // js 9 2:37
         message: 'Access denied' 
       })

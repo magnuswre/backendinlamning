@@ -9,7 +9,7 @@ router.post('/login', login) // js 9 2:55 login
 
 router.delete('/:id', verifyToken, deleteCustomer) // JS 9 3:05
 
-router.put('/:id', updateCustomer)
+router.put('/:id', verifyToken, updateCustomer)
 
 // router.get('/', productModel.getProducts)
 // router.get('/:id', productModel.getOneProduct)

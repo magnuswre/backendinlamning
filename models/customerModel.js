@@ -32,7 +32,7 @@ exports.addCustomer = async (req, res) => {
         })
     }
         
-    const customer = await Customer.findOne({ email }) // jockes glömde JS9 2:58
+    const customer = await Customer.findOne({ email }) // jocke glömde JS9 2:58
 
         if(!customer) {
             return res.status(401).json({
@@ -51,9 +51,9 @@ exports.addCustomer = async (req, res) => {
 
     }
  
-    // DELETE
+    // DELETE JS 9 3:10
     exports.deleteCustomer = async (req, res) => {
-         const customer = await Customer.findOneAndDelete( {_id: req.params.id}) // JS 9 3:09:30
+         const customer = await Customer.findOneAndDelete({ _id: req.params.id }) // JS 9 3:09:30
          if(!customer){
             return res.status(404).json({
             message: 'could not find that customer'
@@ -74,6 +74,7 @@ exports.updateCustomer = async (req, res) => {
     })
 }
     customer.email = req.body.email  //JS 9 3:26
-    const updatedCustomer = await Customer.save()// js 9 3:29
+
+    const updatedCustomer = await customer.save() // js 9 3:29
     res.status(200).json(updatedCustomer)
 }

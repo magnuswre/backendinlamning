@@ -10,5 +10,5 @@ app.use(express.urlencoded({ extended: false}))
 
 app.use('/api/products', require('./controllers/productsController'))
 app.use('/api/customers', require('./controllers/customersController'))
-
+app.use('/api/orders', require('./controllers/orderController'))
 module.exports = app;

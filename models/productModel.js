@@ -23,7 +23,7 @@ exports.getProducts = (req, res) => {
     // .populate('status')
     // .exec()
     .then(data => res.status(200).json(data))
-    .catch(() => res.status(500).json({ message: "Something went wrong getting all the errands" })) 
+    .catch(() => res.status(500).json({ message: "Something went wrong getting all the products" })) 
 }
 
 // GET PRODUCT BY ID
@@ -32,7 +32,7 @@ exports.getOneProduct = (req, res) =>{
     id = req.params.id
     Product.findById(id)
     .then(data => res.status(200).json(data))
-    .catch(() => res.status(500).json({ message: "Something went wrong getting specific the errand" })) 
+    .catch(() => res.status(500).json({ message: "Something went wrong getting specific the product" })) 
 }
 
 
@@ -50,7 +50,7 @@ exports.changeProduct = (req, res) =>{
    
     Product.findByIdAndUpdate(id, {name, description, price, imageURL}, { new: true })
     .then(data => res.status(200).json(data))
-    .catch(() => res.status(500).json({ message: "Something went wrong getting specific the errand" })) 
+    .catch(() => res.status(500).json({ message: "Something went wrong getting specific the product" })) 
 }
 
 // DELETE 
@@ -59,5 +59,5 @@ exports.deleteProduct = (req, res) =>{
     id = req.params.id
     Product.findByIdAndDelete(id)
     .then(data => res.status(200).json(data))
-    .catch(() => res.status(500).json({ message: "Something went wrong getting specific the errand" })) 
+    .catch(() => res.status(500).json({ message: "Something went wrong getting specific the product" })) 
 }
